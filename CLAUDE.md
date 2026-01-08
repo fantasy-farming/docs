@@ -14,8 +14,8 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 2. **DO NOT** make changes that span multiple services in a single session
 3. **USE GitHub Issues** for cross-service coordination:
    - Create issues in the relevant repo for work needed in other services
-   - Reference issues across repos: `waaronmorris/the-farm#123`
-   - Add cross-repo issues to **The Farm** master project (#5)
+   - Reference issues across repos: `fantasy-farming/the-farm-docs#123`
+   - Add cross-repo issues to [**The Farm** project](https://github.com/orgs/fantasy-farming/projects/1)
 4. **USE Backstage** to understand service relationships:
    - View dependencies: http://localhost:3333/catalog/default/component/the-farm-docs
    - Check API contracts before making breaking changes
