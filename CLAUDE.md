@@ -109,3 +109,40 @@ spec:
   type: documentation                # Documentation type
   owner: group:backend-team
 ```
+
+
+## Backstage Developer Portal API
+
+Programmatic access to the service catalog is available via the Backstage API.
+
+**Base URL:** `https://fantasy-backstage.fly.dev`
+
+**Authentication:** Include the API token in the Authorization header:
+```bash
+curl -H "Authorization: Bearer $BACKSTAGE_API_TOKEN" "https://fantasy-backstage.fly.dev/api/catalog/entities"
+```
+
+**Common Endpoints:**
+| Endpoint | Description |
+|----------|-------------|
+| `/api/catalog/entities` | List all entities |
+| `/api/catalog/entities?filter=kind=component` | Filter by kind |
+| `/api/catalog/entities/by-name/:kind/:namespace/:name` | Get specific entity |
+| `/api/search/query?term=X` | Full-text search |
+
+**Examples:**
+```bash
+# Get this service's catalog entry
+curl -H "Authorization: Bearer $BACKSTAGE_API_TOKEN" \
+  "https://fantasy-backstage.fly.dev/api/catalog/entities/by-name/component/default/docs"
+
+# List all APIs
+curl -H "Authorization: Bearer $BACKSTAGE_API_TOKEN" \
+  "https://fantasy-backstage.fly.dev/api/catalog/entities?filter=kind=api"
+
+# Search for related services
+curl -H "Authorization: Bearer $BACKSTAGE_API_TOKEN" \
+  "https://fantasy-backstage.fly.dev/api/search/query?term=docs"
+```
+
+**Portal URL:** https://fantasy-backstage.fly.dev
